@@ -6,7 +6,8 @@
 
 <ion-content>
   <!-- Muestra el nombre de usuario desde Login -->
-  <h2>Bienvenido, {{ username }}</h2>
+  <h2>-Bienvenido- {{ username }}</h2>
+  <h3>Ingrese sus datos</h3>
 
   <form [formGroup]="homeForm">
     <!-- Campo Nombre -->
@@ -42,7 +43,7 @@
     </ion-item>
 
     <!-- Botones Limpiar y Mostrar -->
-    <ion-button expand="full" (click)="clearForm()">Limpiar</ion-button>
-    <ion-button expand="full" color="primary" (click)="showData()">Mostrar</ion-button>
+    <ion-button expand="full" shape="round" color="tertiary" (click)="clearForm()">Limpiar</ion-button>
+    <ion-button expand="full" shape="round" color="tertiary" (click)="showData()">Mostrar</ion-button>
   </form>
 </ion-content>

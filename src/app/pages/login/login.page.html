@@ -1,30 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <!-- Campo de Usuario -->
-    <ion-item>
-      <ion-label position="floating">Usuario</ion-label>
-      <ion-input type="text" formControlName="username"></ion-input>
-    </ion-item>
-    <ion-text color="danger" *ngIf="username?.invalid && username?.touched">
-      El usuario debe tener entre 3 y 8 caracteres.
-    </ion-text>
+  <h1>INICIA SESION</h1>
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Campo de Usuario -->
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="username?.invalid && username?.touched">
+        El usuario debe tener entre 3 y 8 caracteres.
+      </ion-text>
 
-    <!-- Campo de Contraseña -->
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
-    <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
-      La contraseña debe ser de 4 dígitos numéricos.
-    </ion-text>
+      <!-- Campo de Contraseña -->
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
+        La contraseña debe ser de 4 dígitos numéricos.
+      </ion-text>
 
-    <!-- Botón de Ingresar -->
-    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
-  </form>
+      <!-- Botón de Ingresar -->
+      <ion-button expand="full" shape="round" color="tertiary" type="submit" [disabled]="loginForm.invalid">
+        Ingresar
+      </ion-button>
+    </form>
+  </div>
 </ion-content>
