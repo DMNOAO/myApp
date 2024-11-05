@@ -3,6 +3,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+      "paths": {
+      "@/*": ["src/app/*"]
+     },
+
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -30,4 +34,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
+  
 }

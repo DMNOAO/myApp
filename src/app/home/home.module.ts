@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
-
-// Importa los módulos necesarios de Angular Material
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
+    HomePageRoutingModule
   ],
-  declarations: [HomePage],
+  declarations: [HomePage]
 })
 export class HomePageModule {}
+

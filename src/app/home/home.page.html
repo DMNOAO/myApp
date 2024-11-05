@@ -1,49 +1,50 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Bienvenido Gladiador</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Muestra el nombre de usuario desde Login -->
-  <h2>-Bienvenido- {{ username }}</h2>
-  <h3>Ingrese sus datos</h3>
-
-  <form [formGroup]="homeForm">
-    <!-- Campo Nombre -->
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" formControlName="firstName" id="firstName"></ion-input>
-    </ion-item>
-
-    <!-- Campo Apellido -->
-    <ion-item>
-      <ion-label position="floating">Apellido</ion-label>
-      <ion-input type="text" formControlName="lastName" id="lastName"></ion-input>
-    </ion-item>
-
-    <!-- Nivel de Educación -->
-    <ion-item>
-      <ion-label>Nivel de Educación</ion-label>
-      <ion-select formControlName="educationLevel" placeholder="Seleccionar Nivel">
-        <ion-select-option value="basica">Básica</ion-select-option>
-        <ion-select-option value="media">Media</ion-select-option>
-        <ion-select-option value="superior">Superior</ion-select-option>
-        <ion-select-option value="nsnr">NS/NR</ion-select-option>
-      </ion-select>
-    </ion-item>
-    
-
-    <!-- Fecha de Nacimiento con MatDatepicker -->
-    <ion-item>
-      <ion-label>Fecha de Nacimiento</ion-label>
-      <input matInput [matDatepicker]="picker" formControlName="birthDate">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </ion-item>
-
-    <!-- Botones Limpiar y Mostrar -->
-    <ion-button expand="full" shape="round" color="tertiary" (click)="clearForm()">Limpiar</ion-button>
-    <ion-button expand="full" shape="round" color="tertiary" (click)="showData()">Mostrar</ion-button>
-  </form>
+<ion-content [fullscreen]="true">
+  <div class="background" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+    <ion-img src="assets/logo_myl.png" class="imagen-ajustada" alt="Mitos y Leyendas"></ion-img>
+    <div class="grid-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of items">
+            <!-- Enlazar cada card a su ruta correspondiente -->
+            <ion-card (click)="navigateTo(item.route)" [ngStyle]="{'background-image': 'url(' + item.background + ')'}">
+              <ion-img [src]="item.background" alt="{{ item.title }}" class="card-image"></ion-img>
+              <ion-card-content>
+                <ion-card-title>{{ item.title }}</ion-card-title>
+                <p>{{ item.content }}</p>
+              </ion-card-content>
+            </ion-card>
+            
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="navigateTo('home')">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('perfil')">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="navigateTo('tucoleccion')">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>Tu Colección</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

@@ -23,6 +23,22 @@ const routes: Routes = [
     path: 'agregar',
     loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'editarperfil',
+    loadChildren: () => import('./pages/editarperfil/editarperfil.module').then( m => m.EditarperfilPageModule)
+  },
+  {
+    path: 'tucoleccion',
+    loadChildren: () => import('./pages/tucoleccion/tucoleccion.module').then( m => m.TucoleccionPageModule)
+  },
+  {
+    path: 'espada-sagrada',
+    loadChildren: () => import('./pages/espada-sagrada/espada-sagrada.module').then( m => m.EspadaSagradaPageModule)
+  },
 ];
 
 @NgModule({

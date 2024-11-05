@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
+  navigateTo(page?: string) {
+    if (page) {
+      this.router.navigate([`/${page}`]);
+    }
+  }
 
   ngOnInit() {
   }
 
+  cerrarSesion() {
+    this.router.navigate(['/login']);
+  }
 }
+
